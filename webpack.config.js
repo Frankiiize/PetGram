@@ -6,6 +6,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
 			{
@@ -28,7 +29,12 @@ module.exports = {
 						loader: 'html-loader'
 					}
 				]
-			}
+			},
+      {
+        test: /\.(png|jpeg|gif|svg)$/i,
+        type: 'asset'
+        
+      },
 	
 		]
 	},

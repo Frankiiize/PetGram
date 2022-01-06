@@ -1,8 +1,17 @@
 import React from "react";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { ListOfCategories } from "./components/ListOfCategories";
+import { ListOfPhotoCards } from "./components/ListOfPhotoCards";
+import { Logo } from "./components/Logo";
 
 const App = () => {
   return (
-    <h1>Hola react! ahora estoy en vercel !</h1>
+    <>
+      <Logo/>
+      <GlobalStyle/>
+      <ListOfCategories />
+      <ListOfPhotoCards />
+    </>
   )
 }
 
