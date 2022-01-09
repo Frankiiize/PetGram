@@ -17,7 +17,8 @@ const GET_PHOTOS = gql`
 
 const WithPhotos = ({children, categoryId}) => {
   const { loading, error, data } = useQuery(GET_PHOTOS, {
-    variables: {categoryId}
+    variables: {categoryId},
+
   });
   return (
     <div>
