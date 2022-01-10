@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 
 
-const ListOfCategories = () => {
+const ListOfCategories = ({setCategoryId}) => {
   const [ showFixed, setShoFixed ] = useState();
   const { categories, loading } = useFetchCategories();
   
@@ -32,11 +32,13 @@ const ListOfCategories = () => {
           ? [1,2,4,5,6,7].map((item) => (
             <StyledLoader key={item}  src={loadingRing} alt="loader" />
           ))
-          : categories.map(category => (
-            <Item key={category.id}>
-              <Category {...category}/>
-            </Item>
-          ))
+          : categories.map(category => {
+            return (
+              <Item key={category.id}>
+                <Category setCategoryId={setCategoryId} {...category}/>
+              </Item>
+            )
+          })
       }
     </List> 
   )

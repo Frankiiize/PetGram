@@ -5,6 +5,7 @@ import { FavButton } from "../FavButton";
 import { ToggleLikeMutation } from "../Layaout/ToggleLikeMutation";
 import { useLocalStorage  } from "../../hooks/useLocalStorage";
 import { gql, useMutation  } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
 
@@ -35,27 +36,29 @@ const PhotoCard = (props) => {
   }
 
   return (
-    <Article ref={element}>
-      {show && (
-        <>
-          <a href={`/?detail=${props.id}`}>
-            <ImgWrapper>
-              <Img src={props.src} />
-            </ImgWrapper>
-          </a>
-          <ToggleLikeMutation loading={loading} error={error}>
+    
+      <Article ref={element}>
+        {show && (
+          <>
+            <Link to={`details/${props.id} `}>
+              <ImgWrapper>
+                <Img src={props.src} />
+              </ImgWrapper>
+            </Link>
+            <ToggleLikeMutation loading={loading} error={error}>
 
-            <FavButton 
-              liked={liked} 
-              likes={props.likes} 
-              handleLiked={handleLiked} 
-              id={props.id}
-              />
-          </ToggleLikeMutation>
-      
-        </>
-      )}
-    </Article>
+              <FavButton 
+                liked={liked} 
+                likes={props.likes} 
+                handleLiked={handleLiked} 
+                id={props.id}
+                />
+            </ToggleLikeMutation>
+        
+          </>
+        )}
+      </Article>
+
   );
 };
 

@@ -1,6 +1,15 @@
 import { createGlobalStyle } from "styled-components";
-
+const colorPallete = {
+  primary: "rgb(247, 247, 247)",
+  secondary: "rgb(194, 180, 66)",
+  tertiary: "rgb(63, 63, 68)",
+}
 const GlobalStyle = createGlobalStyle`
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     html {
           box-sizing: border-box;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -28,7 +37,6 @@ const GlobalStyle = createGlobalStyle`
                 background: #fefefe;
                 height: 100vh;
                 margin: 0 auto;
-                max-width: 500px;
                 overscroll-behavior: none;
                 width: 100%;
         }
@@ -41,4 +49,4 @@ const GlobalStyle = createGlobalStyle`
         }
 `;
 
-export { GlobalStyle };
+export { GlobalStyle, colorPallete };

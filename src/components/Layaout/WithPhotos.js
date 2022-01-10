@@ -1,17 +1,18 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { ListOfPhotoCards } from '../ListOfPhotoCards'
+import { useParams } from "react-router-dom";
 const GET_PHOTOS = gql`
-  query getPhotos($categoryId: ID) {
-    photos(categoryId: $categoryId) {
-      id
-      categoryId
-      src
-      likes
-      userId
-      liked
-    }
+query getPhotos($categoryId: ID) {
+  photos(categoryId: $categoryId) {
+    id
+    categoryId
+    src
+    likes
+    userId
+    liked
   }
+}
 `
 
 
