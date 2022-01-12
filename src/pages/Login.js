@@ -1,25 +1,33 @@
-import React, { useContext, useEffect } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../components/Context/AuthContext";
-
+import { LoginForm } from "../components/LoginForm";
 const Login = () => {
   const { isAuth, activeAuth } = useContext(AuthContext);
-  console.log(isAuth)
-  let location = useLocation();
-  let navigate = useNavigate();
- 
-  
-  const handleLogin = () => {
-    activeAuth()
-    console.log(isAuth)
-    navigate(location.state.from.pathname, {replace:true});
+  const [ showLogin , setShowLogin ]  = useState(false);
+  const handleTypeOfForm = () => {
+    setShowLogin(!showLogin)
+    console.log(showLogin)
   }
   return(
     <>
-      <h1>Login Page</h1>
-      <button onClick={() => handleLogin()}>login</button>
+    {
+      !showLogin 
+          ? <LoginForm 
+              handleTypeOfForm={handleTypeOfForm}
+              activeAuth={activeAuth} 
+              title={"Login"}
+            />
+          : <LoginForm 
+              activeAuth={activeAuth}
+              title={"Sign UP!"}
+              handleTypeOfForm={handleTypeOfForm}
+              showLogin={showLogin}
+              />
+    }
+      
     </>
   )
 }
-
+{/* <LoginForm activeAuth={activeAuth} title={"registrate"}/>
+ */}
 export { Login };

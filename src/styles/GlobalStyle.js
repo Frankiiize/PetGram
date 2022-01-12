@@ -3,6 +3,9 @@ const colorPallete = {
   primary: "rgb(247, 247, 247)",
   secondary: "rgb(194, 180, 66)",
   tertiary: "rgb(63, 63, 68)",
+  onLine: "rgb(109,219,83)",
+  border: "rgb(235, 235, 235)",
+  borderDark: "rgb(204, 204, 204)",
 }
 const GlobalStyle = createGlobalStyle`
     *{
