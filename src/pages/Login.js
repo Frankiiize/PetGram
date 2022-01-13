@@ -1,32 +1,46 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../components/Context/AuthContext";
 import { LoginForm } from "../components/LoginForm";
+import { useRegister } from "../hooks/useRegister";
+import { useLogin } from "../hooks/useLogin";
+
+
 const Login = () => {
   const { isAuth, activeAuth } = useContext(AuthContext);
-  const [ showLogin , setShowLogin ]  = useState(false);
+  const { sendRegisterData, error, loading } = useRegister(activeAuth);
+  const { sendLoginData, loadingLogin, errorLogin  } = useLogin(activeAuth)
+  const [ showRegister , setShowRegister ]  = useState(false);
   const handleTypeOfForm = () => {
-    setShowLogin(!showLogin)
-    console.log(showLogin)
+    setShowRegister(!showRegister)
+    console.log(showRegister)
   }
-  return(
+  
+
+  return (
     <>
-    {
-      !showLogin 
-          ? <LoginForm 
-              handleTypeOfForm={handleTypeOfForm}
-              activeAuth={activeAuth} 
-              title={"Login"}
-            />
-          : <LoginForm 
-              activeAuth={activeAuth}
-              title={"Sign UP!"}
-              handleTypeOfForm={handleTypeOfForm}
-              showLogin={showLogin}
-              />
-    }
-      
+      {!showRegister 
+      ? (
+          <LoginForm
+            title={"Login"}
+            error={errorLogin}
+            isDisabled={loadingLogin}
+            onSubmitData={sendLoginData}
+            handleTypeOfForm={handleTypeOfForm}
+            howRegister={showRegister}
+          />
+        ) 
+      : (
+          <LoginForm
+            title={"Sign UP!"}
+            error={error}
+            isDisabled={loading}
+            onSubmitData={sendRegisterData}
+            handleTypeOfForm={handleTypeOfForm}
+            showRegister={showRegister}
+          />
+        )}
     </>
-  )
+  );
 }
 {/* <LoginForm activeAuth={activeAuth} title={"registrate"}/>
  */}

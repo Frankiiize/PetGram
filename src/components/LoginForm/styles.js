@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { colorPallete } from "../../styles/GlobalStyle";
 export const  FormContainer = styled.div`
   width:90%;
@@ -18,7 +18,10 @@ export const Form = styled.form`
   margin:0 auto 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center
+  justify-content: center;
+  ${props => props.disabled && css`
+    opacity:0.3;
+ `}
 `
 export const Label = styled.label`
   width:100%;
@@ -40,7 +43,10 @@ export const Input = styled.input`
   outline:none;
   &::placeholder{
     color: ${colorPallete.borderDark};
-  }
+  };
+ ${props => props.disabled && css`
+    opacity:0.3;
+ `}
 `
 export const Check = styled.input.attrs({ type: 'checkbox' })`
   border: 0;

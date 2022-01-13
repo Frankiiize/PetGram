@@ -1,19 +1,16 @@
 import React, {useState} from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { Form, Label, Input, CheckBoxContainer, Check, SendButtom, Title, FormContainer, StyledCheckbox, LinkRecoveryPassword, RegisterLinkWrapper, P , SingUpBtn} from "./styles";
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 
-const LoginForm = ({title, activeAuth, handleTypeOfForm, showLogin}) => {
-  let location = useLocation();
-  let navigate = useNavigate();
+const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, showRegister}) => {
   const [ formValues, setFormValues ] = useState({
     name:"",
     lastName:"",
     email:"",
     password:"",
+    passwordConfirn:"",
     check:false,
   })
-  console.log(formValues)
   const [ showPassword, setShowPassword ] = useState(false);
   const handleShowPassword = () =>{
     setShowPassword(!showPassword);
@@ -21,8 +18,7 @@ const LoginForm = ({title, activeAuth, handleTypeOfForm, showLogin}) => {
   
   const submitData = (ev) => {
     ev.preventDefault();
-    activeAuth();
-    navigate(location.state.from.pathname, {replace:true});
+    onSubmitData(formValues)
   }
   const setOnChangeValues = (event) => {
     setFormValues({
@@ -30,13 +26,13 @@ const LoginForm = ({title, activeAuth, handleTypeOfForm, showLogin}) => {
       [event.target.name] : event.target.value
     })
   }
-  console.log(formValues)
   return (
     <FormContainer>
+    {isDisabled && <p>loading...</p>}
     <Title>{title}</Title>
-      <Form onSubmit={submitData}>
+      <Form disabled={isDisabled} onSubmit={submitData}>
         { 
-          showLogin &&
+          showRegister &&
           <>
             <Label htmlFor="name">
               <Input 
@@ -60,6 +56,7 @@ const LoginForm = ({title, activeAuth, handleTypeOfForm, showLogin}) => {
         }
         <Label htmlFor="email">
           <Input 
+            disabled={isDisabled}
             placeholder="Email" 
             name="email"
             value={formValues.email} 
@@ -69,6 +66,7 @@ const LoginForm = ({title, activeAuth, handleTypeOfForm, showLogin}) => {
         </Label>
         <Label htmlFor="password">
           <Input 
+            disabled={isDisabled}
             placeholder="password" 
             name="password"
             value={formValues.password} 
@@ -84,18 +82,18 @@ const LoginForm = ({title, activeAuth, handleTypeOfForm, showLogin}) => {
                       
         </Label>
             {
-              showLogin &&
-              <Label>
+              showRegister &&
+              <Label htmlFor="passwordConfirn">
                 <Input 
                   placeholder="password" 
-                  name="password"
-                  value={formValues.password} 
+                  name="passwordConfirn"
+                  value={formValues.passwordConfirn} 
                   onChange={setOnChangeValues} 
                   type={showPassword ? 'text':'password'} 
                 />
               </Label>
             }
-       
+       {error && <p>{`${error}`}</p>}
         <CheckBoxContainer>
           <StyledCheckbox  checked={formValues.check}>
             <Check 
@@ -107,10 +105,11 @@ const LoginForm = ({title, activeAuth, handleTypeOfForm, showLogin}) => {
           <span>Remember me</span>
         </CheckBoxContainer>
         <SendButtom type="submit" value={title} />
-        <LinkRecoveryPassword href="/recovery-password">Forgot Password?</LinkRecoveryPassword>
+        { !showRegister && <LinkRecoveryPassword href="/recovery-password">Forgot Password?</LinkRecoveryPassword>}
+        
       </Form>
       {
-        showLogin 
+        showRegister 
           ? <RegisterLinkWrapper>
               <P>Already have an account?</P>
               <SingUpBtn onClick={handleTypeOfForm}>Login</SingUpBtn>
