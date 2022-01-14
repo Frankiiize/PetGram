@@ -9,7 +9,6 @@ const ProviderAuth = ({children}) => {
   const value = {
     isAuth,
     activeAuth : ({data}) => {
-      debugger
       const {signup} = data ?? null
       const {login} = data ?? null
       console.log(signup)

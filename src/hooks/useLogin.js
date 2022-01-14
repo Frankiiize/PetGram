@@ -18,7 +18,6 @@ const useLogin = (activeAuth) => {
     }
   });
   const sendLoginData = (data) =>{
-    debugger
     const {email} = data;
     const {password} = data;
     login({variables: {
@@ -27,7 +26,6 @@ const useLogin = (activeAuth) => {
         password:password
       }
     }}).then((token) =>{
-      debugger
       console.log(token)
       activeAuth(token);
       navigate(location.state.from.pathname, {replace:true});
