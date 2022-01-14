@@ -3,15 +3,13 @@ import { ImgWrapper, Img, Article  } from "./styles";
 import { useIntersectionObserver } from "../../hooks/useIntersectorObserver.js"
 import { FavButton } from "../FavButton";
 import { ToggleLikeMutation } from "../Layaout/ToggleLikeMutation";
-import { useLocalStorage  } from "../../hooks/useLocalStorage";
 import { gql, useMutation  } from "@apollo/client";
 import { Link } from "react-router-dom";
 
-const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
 
 const LIKE_PHOTO = gql`
-  mutation likeAnonimusPhoto($input: LikePhoto!){
-    likeAnonymousPhoto(input: $input){
+  mutation likePhoto($input: LikePhoto!){
+    likePhoto(input: $input){
       id,
       liked,
       likes
@@ -20,10 +18,8 @@ const LIKE_PHOTO = gql`
 `
 
 const PhotoCard = (props) => {
-  const key = `like-${props.id}`
 
   const [ show, element ] = useIntersectionObserver()
-  const [ liked, setLiked]  = useLocalStorage(key,false);
   
   const [toggleLike, { data, loading, error }] = useMutation(LIKE_PHOTO, {
     variables: {
@@ -31,8 +27,7 @@ const PhotoCard = (props) => {
     }
   });
   const handleLiked = () => {
-    setLiked(!liked)
-    !liked && toggleLike({ variables: { input: { id: props.id } } });
+    toggleLike({ variables: { input: { id: props.id } } });
   }
 
   return (
@@ -48,7 +43,7 @@ const PhotoCard = (props) => {
             <ToggleLikeMutation loading={loading} error={error}>
 
               <FavButton 
-                liked={liked} 
+                liked={props.liked} 
                 likes={props.likes} 
                 handleLiked={handleLiked} 
                 id={props.id}

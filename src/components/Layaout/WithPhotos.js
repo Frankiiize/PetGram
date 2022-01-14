@@ -21,6 +21,7 @@ const WithPhotos = ({children, categoryId}) => {
     variables: {categoryId},
 
   });
+  console.log(data)
   return (
     <div>
       <ListOfPhotoCards data={data} error={error} loading={loading}/>

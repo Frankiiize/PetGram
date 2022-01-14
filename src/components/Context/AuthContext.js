@@ -8,10 +8,18 @@ const ProviderAuth = ({children}) => {
   });
   const value = {
     isAuth,
-    activeAuth : (token) => {
-      console.log(token.data.login)
-      setIsAuth(true);
-      window.sessionStorage.setItem('token', JSON.stringify(token.data.login) )
+    activeAuth : ({data}) => {
+      debugger
+      const {signup} = data ?? null
+      const {login} = data ?? null
+      console.log(signup)
+      if(!!signup){
+        window.sessionStorage.setItem('token', signup )
+        setIsAuth(true);
+      } else {
+        window.sessionStorage.setItem('token', login )
+        setIsAuth(true);
+      }
     }
   }
 

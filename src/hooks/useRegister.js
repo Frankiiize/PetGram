@@ -19,12 +19,16 @@ const useRegister = (activeAuth) => {
     }
   });
   const sendRegisterData = (data) =>{
+    const {email} = data
+    const {password} = data
+    debugger
     register({variables: {
       input: {
-        email:data.email,
-        password:data.password
+        email:email,
+        password:password
       }
     }}).then((token) =>{
+      debugger
       console.log(token)
       activeAuth(token);
       navigate(location.state.from.pathname, {replace:true});
