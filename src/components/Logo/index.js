@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "react-router-dom";
 import { Svg } from './styles.js'
 const Logo = (props) => (
-  <Link to="/">
+  <Link to="/" title="home">
     <Svg
       width={387.931}
       height={122}

@@ -6,17 +6,17 @@ const NavBar = () => {
   const activeClass = 'activado'
   return(
     <Nav>
-      <Boton to={"/"} style={({isActive}) => (
+      <Boton to={"/"} title="home" style={({isActive})  => (
         isActive ? 'activado' : undefined 
       )}>
         <MdHome size={32}/>
       </Boton>
-      <Boton to={"favs"} style={({isActive}) => (
+      <Boton to={"favs"} title="favorites" style={({isActive}) => (
         isActive ? 'activado' : undefined 
       )}>
         <MdOutlineFavorite size={32} />
       </Boton>
-      <Boton to={"profile"} style={({isActive}) => (
+      <Boton to={"profile"} title="profile" style={({isActive}) => (
         isActive ? 'activado' : undefined 
       )}>
         <MdPersonOutline size={32}/>

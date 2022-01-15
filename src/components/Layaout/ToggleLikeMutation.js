@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const ToggleLikeMutation = ({children,loading,error}) => {
-  
+  const navigate = useNavigate()
 
-  if(error) return <p>submission error{`${error.message}`}</p>
+  if(error) {
+    navigate('/login')
+  }
   return(
     <div>
       {children}

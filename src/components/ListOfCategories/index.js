@@ -30,7 +30,7 @@ const ListOfCategories = ({setCategoryId}) => {
       {
         loading 
           ? [1,2,4,5,6,7].map((item) => (
-            <StyledLoader key={item}  src={loadingRing} alt="loader" />
+            <StyledLoader key={item}  src={loadingRing} alt="loader-${index}" />
           ))
           : categories.map(category => {
             return (
