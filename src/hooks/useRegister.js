@@ -16,20 +16,18 @@ const useRegister = (activeAuth) => {
         email:"",
         password:""
       }
-    }
+    },
+    fetchPolicy: "network-only"
   });
   const sendRegisterData = (data) =>{
     const {email} = data
     const {password} = data
-    debugger
     register({variables: {
       input: {
         email:email,
         password:password
       }
     }}).then((token) =>{
-      debugger
-      console.log(token)
       activeAuth(token);
       navigate(location.state.from.pathname, {replace:true});
     })

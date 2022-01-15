@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const useLogin = (activeAuth) => {
+const useLogin = (activeAuth,client) => {
   let navigate = useNavigate();
   let location = useLocation();
   const LOGIN = gql`
@@ -14,7 +14,7 @@ const useLogin = (activeAuth) => {
       input: {
         email:"",
         password:""
-      }
+      },
     }
   });
   const sendLoginData = (data) =>{
@@ -26,9 +26,9 @@ const useLogin = (activeAuth) => {
         password:password
       }
     }}).then((token) =>{
-      console.log(token)
       activeAuth(token);
       navigate(location.state.from.pathname, {replace:true});
+      client.resetStore()
     })
   }
   return {

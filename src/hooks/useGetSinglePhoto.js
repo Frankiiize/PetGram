@@ -15,7 +15,8 @@ const useGetSinglePhoto = (id) => {
   }
 `
   const { loading, error, data} = useQuery(query, {
-    variables : { id }
+    variables : { id },
+    fetchPolicy: "network-only"
   })
 
   return {

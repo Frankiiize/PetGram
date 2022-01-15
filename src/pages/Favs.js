@@ -5,9 +5,7 @@ import { useGetFavs } from "../hooks/useGetFavs";
 const Favs = () => {
   const { loading, error, data } = useGetFavs()
   const { favs } = data || { favs : []}
-  console.log(favs.map(element => {
-    console.log(element.id)
-  }))
+ 
   if(loading) <p>loadin..</p>
   if(error) <p>{`${error}`}</p>
   return(

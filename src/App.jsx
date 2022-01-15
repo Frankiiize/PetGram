@@ -12,11 +12,11 @@ import { Login } from "./pages/Login";
 import { ProviderAuth } from "./components/Context/AuthContext";
 
 
-const App = () => {
+const App = ({client}) => {
  
 
   return (
-    <ProviderAuth>
+    <ProviderAuth client={client}>
       <BrowserRouter>
         <GlobalStyle/>
         <Logo />

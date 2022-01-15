@@ -19,9 +19,8 @@ query getPhotos($categoryId: ID) {
 const WithPhotos = ({children, categoryId}) => {
   const { loading, error, data } = useQuery(GET_PHOTOS, {
     variables: {categoryId},
-
+   
   });
-  console.log(data)
   return (
     <div>
       <ListOfPhotoCards data={data} error={error} loading={loading}/>

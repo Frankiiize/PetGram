@@ -6,13 +6,12 @@ import { useLogin } from "../hooks/useLogin";
 
 
 const Login = () => {
-  const { isAuth, activeAuth } = useContext(AuthContext);
+  const { isAuth, activeAuth, client } = useContext(AuthContext);
   const { sendRegisterData, error, loading } = useRegister(activeAuth);
-  const { sendLoginData, loadingLogin, errorLogin  } = useLogin(activeAuth)
+  const { sendLoginData, loadingLogin, errorLogin  } = useLogin(activeAuth,client)
   const [ showRegister , setShowRegister ]  = useState(false);
   const handleTypeOfForm = () => {
     setShowRegister(!showRegister)
-    console.log(showRegister)
   }
   
 
@@ -27,6 +26,7 @@ const Login = () => {
             onSubmitData={sendLoginData}
             handleTypeOfForm={handleTypeOfForm}
             howRegister={showRegister}
+            client={client}
           />
         ) 
       : (
