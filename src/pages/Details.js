@@ -1,11 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { PhotoCardWithQuery } from "../components/Layaout/PhotoCardWithQuery";
+import { SeoHelmet } from "../components/Layaout/SeoHelmet";
 
 const Details = () => {
   const { detailsId } = useParams();
   return(
-    <PhotoCardWithQuery detailsId={detailsId} />
+    <>
+      <SeoHelmet 
+        title={"Details |PetGram"} 
+        description={"Detalles fotos mascotas"}
+        keywords={"detalles, foto, selfie, mascotas"}
+      />
+      <PhotoCardWithQuery detailsId={detailsId} />
+    </>
   )
 }
 
