@@ -5,18 +5,16 @@ export const FavoritesWrapper = styled.div`
   width:95%;
   height: calc(100vh - 200px);
   display:grid;
-  grid-template-columns:repeat(3, minmax(200px, 1fr));
-  grid-auto-rows: 200px;
+  justify-content: space-around;
+  grid-template:repeat(3,minmax(auto,1fr))/repeat(auto-fit, 250px);
   overflow: scroll;
-  column-gap:1px;
   align-self:stretch;
 `
 
 export const Imagen = styled.img`
-  min-width:100%;
-  max-width:200px;
+  width:100%;
   height:100%;
-  max-height:200px;
+  min-height:250px;
   overflow: hidden;
   border: 1px solid ${colorPallete.secondary};
   border-radius: 5px;
@@ -26,3 +24,8 @@ export const Title = styled.h2`
   font-size: 16px;
   color: ${colorPallete.tertiary}
 `
+
+/* 
+grid-template-columns:repeat(3,minmax(auto,1fr)) ;
+  grid-template-rows:repeat(auto-fit, 250px); 
+  */
