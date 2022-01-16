@@ -16,7 +16,7 @@ export const Form = styled.form`
   padding:20px 0;
   border-top:1px solid ${colorPallete.border};
   border-bottom:1px solid ${colorPallete.border};
-  margin:0 auto 20px;
+  margin:0 auto 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +33,7 @@ export const Label = styled.label`
   height:50px;
   display:flex;
   flex-direction:row;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   align-items:center;
 `
 export const Input = styled.input`
@@ -42,9 +42,17 @@ export const Input = styled.input`
   width:100%;
   height:100%;
   outline:none;
+  background:transparent;
   &::placeholder{
     color: ${colorPallete.borderDark};
   };
+  &:-webkit-autofill, &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus, &:-webkit-autofill:active{
+    border: 1px solid #fff;
+    -webkit-text-fill-color: ${colorPallete.tertiary};
+    -webkit-box-shadow: 0 0 0px 1000px ##fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
  ${props => props.disabled && css`
     opacity:0.3;
  `}
@@ -89,7 +97,7 @@ export const SendButtom = styled.input`
   border:none;
   font-size: 14px;
   text-transform:uppercase;
-  margin-bottom:20px
+  margin-bottom:10px
 `
 export const Title = styled.h1`
   font-size: 18px;

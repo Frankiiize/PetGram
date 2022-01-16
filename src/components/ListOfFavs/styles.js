@@ -9,6 +9,7 @@ export const FavoritesWrapper = styled.div`
   grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
   overflow: scroll;
   align-self:stretch;
+  row-gap: 5px;
 `
 
 export const Imagen = styled.img`

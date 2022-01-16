@@ -15,7 +15,7 @@ const Favs = () => {
       <FavsContainer>
         <TitleContainer>
           <Title>Your Favorites</Title>
-          <FavButton size={20}/>
+          <FavButton size={20} text={false}/>
         </TitleContainer>
         <ListOfFavs favs={favs} />
       </FavsContainer>

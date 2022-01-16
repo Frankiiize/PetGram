@@ -28,7 +28,6 @@ const useLogin = (activeAuth,client) => {
     }}).then((token) =>{
       activeAuth(token);
       navigate(location.state.from.pathname, {replace:true});
-      client.resetStore()
     })
   }
   return {
