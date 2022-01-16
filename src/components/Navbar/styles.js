@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { colorPallete } from "../../styles/GlobalStyle";
 import { fadeIn } from "../../styles/animation";
+import { onShowMenu, onHiddeMenu } from "../../styles/animation";
 export const  Nav = styled.nav`
+  ${onShowMenu()}
   display:flex;
   width:100%;
   height:50px;
@@ -12,6 +14,11 @@ export const  Nav = styled.nav`
   right: 0;
   justify-content:space-around;
   align-items:flex-start;
+  ${ props => !props.showNav &&
+     css`
+      ${onHiddeMenu};
+     `
+  }
 `
 
 export const Boton = styled(NavLink)`
@@ -45,4 +52,16 @@ export const Boton = styled(NavLink)`
   }
   
 }
+`
+
+export const HamburderContainer = styled.div`
+  position: fixed;
+  display:flex;
+  align-items:center;
+  right: 5px;
+  bottom:0; 
+  color: ${colorPallete.tertiary};
+  background-color:${colorPallete.primary};
+  border-radius: 5px;
+  
 `

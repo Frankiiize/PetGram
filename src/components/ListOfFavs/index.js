@@ -1,16 +1,19 @@
 import React from "react";
-import { FavoritesWrapper, Imagen, Title } from './styles.js'
+import { Link } from "react-router-dom";
+import {FavsContainer, FavoritesWrapper, Imagen, Title } from './styles.js'
 const ListOfFavs = (props) => {
+  console.log(props)
   return (
     <>
-      <Title>Favorites</Title>
-      <FavoritesWrapper>
-        {
-          props.favs.map((fav) => (
-          <Imagen src={fav.src} key={fav.id} /> 
-        ))
-        }
-      </FavoritesWrapper>
+        <FavoritesWrapper>
+          {
+            props.favs.map((fav) => (
+              <Link key={fav.id} to={`/details/${fav.id} `} >
+                <Imagen src={fav.src} /> 
+              </Link>
+          ))
+          }
+        </FavoritesWrapper>
     </>
   )
 }

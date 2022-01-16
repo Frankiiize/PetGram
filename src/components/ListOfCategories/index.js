@@ -4,10 +4,6 @@ import { Category  } from "../Category";
 import loadingRing from '../../assets/Dual Ring-1s-200px.svg'
 import { List, Item, StyledLoader } from "./styles";
 
-import styled from "styled-components";
-
-
-
 const ListOfCategories = ({setCategoryId}) => {
   const [ showFixed, setShoFixed ] = useState();
   const { categories, loading } = useFetchCategories();
@@ -15,7 +11,7 @@ const ListOfCategories = ({setCategoryId}) => {
   
   useEffect(() => {
     const onScroll = () => {
-      const newShowFixed = window.scrollY > 200;
+      const newShowFixed = window.scrollY > 80;
       showFixed !== newShowFixed && setShoFixed(newShowFixed);
     }
     document.addEventListener('scroll', onScroll)
@@ -30,7 +26,7 @@ const ListOfCategories = ({setCategoryId}) => {
       {
         loading 
           ? [1,2,4,5,6,7].map((item) => (
-            <StyledLoader key={item}  src={loadingRing} alt="loader-${index}" />
+              <StyledLoader key={item}  src={loadingRing} alt="loader-${index}" />
           ))
           : categories.map(category => {
             return (
@@ -45,8 +41,12 @@ const ListOfCategories = ({setCategoryId}) => {
 
   return (
     <>
-      {RenderList()}
-      {showFixed && RenderList ({fixed:true}, {fadeIn:true})}
+      {
+        showFixed
+         ? RenderList ({fixed:true}, {fadeIn:true})
+         : RenderList()
+      }
+  
     </>
 
   )

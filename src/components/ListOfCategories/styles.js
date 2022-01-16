@@ -1,35 +1,36 @@
 import styled, { css } from "styled-components";
-import { fadeIn  } from "../../styles/animation";
+import { fadeIn , fadeMenu } from "../../styles/animation";
 const List = styled.ul `
  display: flex;
  overFlow: scroll;
  width: 100%;
  justify-content: space-around;
  align-items: center;
+
   &::-webkit-scrollbar {
       display: none;
     }
     ${props => props.fixed && css`
       {
+      ${fadeMenu({time:'0.7s'})}
+      
+      display:inline-flex;
+      justify-content:flex-start;
       background: #fff;
-      border-radius: 60px;
+      border-radius: 50px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       left: 0;
       right: 0;
       top: -20px;
       margin: 0 auto;
-      max-width: 400px;
       padding: 5px;
       position: fixed;
       transform: scale(0.5);
       z-index: 1;
+      max-width:500px;
     }
     `}
-    ${props => props.fadeIn && css`
-      {
-        ${fadeIn({time: '0.5s', type: 'ease'})}
-      }
-    `}
+ 
 
 `
 
@@ -43,3 +44,11 @@ const StyledLoader = styled.img `
 `
 
 export { List, Item, StyledLoader };
+
+/* 
+   ${props => props.fadeIn && css`
+      {
+        ${fadeIn({time: '0.5s', type: 'ease'})}
+      }
+    `}
+*/

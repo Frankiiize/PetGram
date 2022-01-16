@@ -7,6 +7,9 @@ const colorPallete = {
   border: "rgb(235, 235, 235)",
   borderDark: "rgb(204, 204, 204)",
 }
+const fonts = {
+  primary: 'Roboto Condensed, sans-serif'
+}
 const GlobalStyle = createGlobalStyle`
     *{
       margin: 0;
@@ -52,4 +55,4 @@ const GlobalStyle = createGlobalStyle`
         }
 `;
 
-export { GlobalStyle, colorPallete };
+export { GlobalStyle, colorPallete, fonts };

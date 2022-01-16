@@ -2,17 +2,18 @@ import styled, {css} from "styled-components";
 import { colorPallete } from "../../styles/GlobalStyle";
 export const  FormContainer = styled.div`
   width:90%;
+  min-height: calc(100vh - 200px);
   max-width:370px;
   min-height: 200px;
   display:flex;
   flex-direction:column;
-  margin: 25px auto;
+  margin: 0 auto;
   border: 1px solid ${colorPallete.border};
   border-radius: 5px;
 `
 export const Form = styled.form`
   width: 90%;
-  padding:30px 0;
+  padding:20px 0;
   border-top:1px solid ${colorPallete.border};
   border-bottom:1px solid ${colorPallete.border};
   margin:0 auto 20px;
@@ -93,7 +94,6 @@ export const SendButtom = styled.input`
 export const Title = styled.h1`
   font-size: 18px;
   font-weight: 500;
-  padding: 8px 0;
   text-align:left;
   text-transform:capitalize;
   margin:10px 20px;

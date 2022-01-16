@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { ListOfPhotoCards } from '../ListOfPhotoCards'
-import { useParams } from "react-router-dom";
+
 const GET_PHOTOS = gql`
 query getPhotos($categoryId: ID) {
   photos(categoryId: $categoryId) {
@@ -22,7 +22,7 @@ const WithPhotos = ({children, categoryId}) => {
    
   });
   return (
-    <div>
+    <div className="list">
       <ListOfPhotoCards data={data} error={error} loading={loading}/>
       {children}
     </div>

@@ -3,16 +3,16 @@ import { Button } from "./styles";
 
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
 
-const FavButton = ({id, likes, handleLiked ,liked }) => {
+const FavButton = ({id, likes, handleLiked ,liked, size=32 }) => {
 
   return(
     <Button liked={liked} onClick={handleLiked}>
       {
         liked 
-          ? <MdFavorite size={32} />
-          : <MdFavoriteBorder size={32}/>
+          ? <MdFavorite size={size} />
+          : <MdFavoriteBorder size={size}/>
       }
-      {likes} likes
+      {likes} { likes && `likes`}
     </Button>
   )
 }

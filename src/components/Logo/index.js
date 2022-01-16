@@ -1,13 +1,14 @@
 import * as React from "react"
 import { Link } from "react-router-dom";
-import { Svg } from './styles.js'
+import { Svg, LogoContainer } from './styles.js'
 const Logo = (props) => (
-  <Link to="/" title="home">
+  <LogoContainer >
+  <Link to="/" title="home"  >
     <Svg
-      width={387.931}
-      height={122}
+      width={380}
+      height={100}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="56.034 14 387.931 122"
+      viewBox="50 14 380 80"
       style={{
         background: "0 0",
       }}
@@ -52,5 +53,6 @@ const Logo = (props) => (
       </g>
     </Svg>
   </Link>
+  </LogoContainer>
 )
 export { Logo };
