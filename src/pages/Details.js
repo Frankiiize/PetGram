@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { PhotoCardWithQuery } from "../components/Layaout/PhotoCardWithQuery";
 import { SeoHelmet } from "../components/Layaout/SeoHelmet";
 
-const Details = () => {
+const DetailsPage = () => {
   const { detailsId } = useParams();
   return(
     <>
@@ -17,4 +17,8 @@ const Details = () => {
   )
 }
 
-export { Details };
+export default function(){
+  return(
+    <DetailsPage />
+  )
+}

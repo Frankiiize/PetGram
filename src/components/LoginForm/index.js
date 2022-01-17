@@ -54,11 +54,15 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
         { 
           showRegister &&
           <>
-            <Label onClick={() => handleSelectInput('name',inputRef)} htmlFor="name">
+            <Label 
+              htmlFor="name"
+              isSelectInput={isSelectInput.name} 
+              onClick={() => handleSelectInput('name',inputRef)} 
+            >
             {
-              isSelectInput.name && <Span className={isSelectInput.name && 'inputSelected'}>name</Span>
+              isSelectInput.name && 
+                <Span className={isSelectInput.name && 'inputSelected'}>name</Span>
             }
-              
               <Input 
                 ref={inputRef}
                 placeholder="name"
@@ -66,9 +70,14 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
                 name="name"
                 onChange={setOnChangeValues}
                 autoComplete="name"
+                isSelectInput={isSelectInput.name}
               />
             </Label>
-            <Label htmlFor="lastName"  onClick={() => handleSelectInput('lastName', lasteNameRef)} >
+            <Label 
+              htmlFor="lastName"  
+              onClick={() => handleSelectInput('lastName', lasteNameRef)} 
+              isSelectInput={isSelectInput.lastName}
+              >
               {
                 isSelectInput.lastName && <Span className={isSelectInput.lastName && 'inputSelected'}>lastName</Span>
               }
@@ -80,11 +89,16 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
                 name="lastName"
                 onChange={setOnChangeValues}
                 autoComplete="family-name"
+                isSelectInput={isSelectInput.lastName}
               />
             </Label>
           </>
         }
-        <Label htmlFor="email" onClick={() => handleSelectInput('email', emailRef)}>
+        <Label 
+          htmlFor="email" 
+          onClick={() => handleSelectInput('email', emailRef)}
+          isSelectInput={isSelectInput.email}
+          >
         {
           isSelectInput.email && <Span className={isSelectInput.email && 'inputSelected'}>email</Span>
         }
@@ -97,9 +111,14 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
             value={formValues.email} 
             onChange={setOnChangeValues}
             autoComplete="email"
+            isSelectInput={isSelectInput.email}
           />
         </Label>
-        <Label htmlFor="password" onClick={() => handleSelectInput('password', passwordRef)} >
+        <Label 
+          htmlFor="password" 
+          onClick={() => handleSelectInput('password', passwordRef)} 
+          isSelectInput={isSelectInput.password}
+          >
         {
           isSelectInput.password && <Span className={isSelectInput.password && 'inputSelected'}>password</Span>
         }
@@ -113,6 +132,7 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
             onChange={setOnChangeValues} 
             type={showPassword ? 'text':'password'} 
             autoComplete="current-password"
+            isSelectInput={isSelectInput.password}
           />
             {
               !showPassword
@@ -123,7 +143,11 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
         </Label>
             {
               showRegister &&
-              <Label htmlFor="passwordConfirn" onClick={() => handleSelectInput('cPassword', cPasswordRef)}>
+              <Label 
+                htmlFor="passwordConfirn" 
+                onClick={() => handleSelectInput('cPassword', cPasswordRef)}
+                isSelectInput={isSelectInput.cPassword}
+                >
                 {
                   isSelectInput.cPassword && <Span className={isSelectInput.cPassword && 'inputSelected'}>confirm password</Span>
                 }
@@ -135,6 +159,7 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
                   value={formValues.passwordConfirn} 
                   onChange={setOnChangeValues} 
                   type={showPassword ? 'text':'password'} 
+                  isSelectInput={isSelectInput.cPassword}
                 />
               </Label>
             }

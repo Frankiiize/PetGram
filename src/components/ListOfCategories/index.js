@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useFetchCategories } from "../../hooks/useFetchCategories";
 import { Category  } from "../Category";
 import loadingRing from '../../assets/Dual Ring-1s-200px.svg'
 import { List, Item, StyledLoader } from "./styles";
 
-const ListOfCategories = ({setCategoryId}) => {
+const ListOfCategoriesComponent = ({setCategoryId}) => {
   const [ showFixed, setShoFixed ] = useState();
   const { categories, loading } = useFetchCategories();
   
@@ -51,5 +51,9 @@ const ListOfCategories = ({setCategoryId}) => {
 
   )
 }
-
-export { ListOfCategories };
+/* export { ListOfCategories } */
+export default function(){
+  return(
+    <ListOfCategoriesComponent />
+  )
+}

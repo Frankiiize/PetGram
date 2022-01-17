@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { WithPhotos } from "../components/Layaout/WithPhotos";
-import { ListOfCategories } from "../components/ListOfCategories";
-import { Helmet } from 'react-helmet'
+//import { ListOfCategories } from "../components/ListOfCategories";
 import { SeoHelmet } from "../components/Layaout/SeoHelmet";
-const Home = () => {
+const ListOfCategories = React.lazy(() => import('../components/ListOfCategories'))
+const HomePage = () => {
   let { id } = useParams()
   return(
     <>
@@ -22,4 +22,8 @@ const Home = () => {
   )
 }
 
-export { Home };
+export default function(){
+  return(
+    <HomePage />
+  )
+}

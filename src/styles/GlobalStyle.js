@@ -58,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
           ${onUpPlaceholder()}
             background-color: white;
             padding: 5px;
-            top:-18px;
+            top:-11px;
         }
 `;
 

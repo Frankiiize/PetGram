@@ -64,7 +64,7 @@ const UpPlaceholder = keyframes`
    top: 0
   }
   to {
-    top:-18px;
+    top:-11px;
   }
 `
 export const onUpPlaceholder = () => {

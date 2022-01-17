@@ -5,7 +5,7 @@ import { useRegister } from "../hooks/useRegister";
 import { useLogin } from "../hooks/useLogin";
 
 
-const Login = () => {
+const LoginPage = () => {
   const { isAuth, activeAuth, client } = useContext(AuthContext);
   const { sendRegisterData, error, loading } = useRegister(activeAuth);
   const { sendLoginData, loadingLogin, errorLogin  } = useLogin(activeAuth,client)
@@ -44,4 +44,8 @@ const Login = () => {
 }
 {/* <LoginForm activeAuth={activeAuth} title={"registrate"}/>
  */}
-export { Login };
+export default function(){
+  return(
+    <LoginPage/>
+  )
+}

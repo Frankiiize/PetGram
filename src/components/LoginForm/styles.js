@@ -1,6 +1,5 @@
 import styled, {css} from "styled-components";
 import { colorPallete, fonts } from "../../styles/GlobalStyle";
-import { onUpPlaceholder } from "../../styles/animation";
 export const  FormContainer = styled.div`
   width:90%;
   min-height: calc(100vh - 200px);
@@ -34,9 +33,15 @@ export const Label = styled.label`
   height:50px;
   display:flex;
   flex-direction:row;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   align-items:center;
   position:relative;
+  ${props => props.isSelectInput && 
+    css`
+      border:1px solid ${colorPallete.secondary};
+    
+    `
+  }
 `
 export const Span = styled.span`
   position:absolute;
@@ -46,7 +51,7 @@ export const Span = styled.span`
   color:${colorPallete.tertiary};
   text-transform:capitalize;
   letter-spacing: 1px;
-  
+  padding: 0 5px;
 `
 export const Input = styled.input`
   border:none;
@@ -57,11 +62,59 @@ export const Input = styled.input`
   &::placeholder{
     display:none;
     color:none;
+    text-transform:capitalize;
+    font-family:${fonts.primary};
+    padding-left: 5px;
+    letter-spacing: 1px;
   };
   /* hide placeholder*/
+  ${props => props.isSelectInput && 
+    css`
+    &::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     input::placeholder {
+         color: transparent;
+    }
+     textarea::-webkit-input-placeholder {
+        /* WebKit browsers */
+         color: transparent;
+    }
+     textarea:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+         color: transparent;
+    }
+     textarea::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+         color: transparent;
+    }
+     textarea:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+         color: transparent;
+    }
+     textarea::placeholder {
+         color: transparent;
+    }
+    `
+  }
+  
+    /* hide placeholder*/
+  
 
 
-/* hide placeholder*/
 
 /* no autofill color */
   &:-webkit-autofill, &:-webkit-autofill:hover,

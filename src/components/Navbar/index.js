@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Boton, Nav, HamburderContainer } from "./styles";
 import { MdHome, MdPersonOutline, MdOutlineFavorite, MdMenuOpen } from "react-icons/md";
-const NavBar = () => {
+const NavBarComponent = () => {
   const [ showNav, setShowNav ] = useState(true);
 
   useEffect(() => {
     const onScroll = () => {
       const newShowFixed = window.scrollY < 80;
       showNav !== newShowFixed && setShowNav(newShowFixed);
-      console.log(newShowFixed)
     }
     document.addEventListener('scroll', onScroll)
 
@@ -48,8 +47,9 @@ const NavBar = () => {
   )
 }
 
-export { NavBar };
+export default function(){
+  return(
+    <NavBarComponent />
+  )
+}
 
-{/* 
-  
- */}

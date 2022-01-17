@@ -4,7 +4,7 @@ import { ListOfFavs } from "../components/ListOfFavs";
 import { FavButton } from "../components/FavButton";
 import { FavsContainer } from "../components/ListOfFavs/styles";
 import { TitleContainer, Title } from '../components/ListOfFavs/styles'
-const Favs = () => {
+const FavsPage = () => {
   const { loading, error, data } = useGetFavs()
   const { favs } = data || { favs : []}
  
@@ -23,4 +23,8 @@ const Favs = () => {
   )
 }
 
-export { Favs };
+export default function Favs() {
+  return(
+    <FavsPage/>
+  )
+}

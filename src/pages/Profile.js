@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../components/Context/AuthContext";
 
-const Profile = () => {
+const ProfilePage = () => {
   const  { removeAuth, client } = useContext(AuthContext);
   return(
     <>
@@ -15,4 +15,8 @@ const Profile = () => {
   )
 }
 
-export { Profile };
+export default function(){
+  return(
+    <ProfilePage />
+  )
+}
