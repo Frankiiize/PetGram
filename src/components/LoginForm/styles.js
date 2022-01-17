@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
-import { colorPallete } from "../../styles/GlobalStyle";
+import { colorPallete, fonts } from "../../styles/GlobalStyle";
+import { onUpPlaceholder } from "../../styles/animation";
 export const  FormContainer = styled.div`
   width:90%;
   min-height: calc(100vh - 200px);
@@ -35,6 +36,17 @@ export const Label = styled.label`
   flex-direction:row;
   margin-bottom: 10px;
   align-items:center;
+  position:relative;
+`
+export const Span = styled.span`
+  position:absolute;
+  display:inline-flex;
+  align-items:center;
+  font-family:${fonts.primary};
+  color:${colorPallete.tertiary};
+  text-transform:capitalize;
+  letter-spacing: 1px;
+  
 `
 export const Input = styled.input`
   border:none;
@@ -42,17 +54,25 @@ export const Input = styled.input`
   width:100%;
   height:100%;
   outline:none;
-  background:transparent;
   &::placeholder{
-    color: ${colorPallete.borderDark};
+    display:none;
+    color:none;
   };
+  /* hide placeholder*/
+
+
+/* hide placeholder*/
+
+/* no autofill color */
   &:-webkit-autofill, &:-webkit-autofill:hover,
   &:-webkit-autofill:focus, &:-webkit-autofill:active{
     border: 1px solid #fff;
-    -webkit-text-fill-color: ${colorPallete.tertiary};
+    -webkit-text-fill-color: ${colorPallete.secondary};
     -webkit-box-shadow: 0 0 0px 1000px ##fff inset;
     transition: background-color 5000s ease-in-out 0s;
   }
+/* no autofill color */
+
  ${props => props.disabled && css`
     opacity:0.3;
  `}

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { onUpPlaceholder } from "./animation";
 const colorPallete = {
   primary: "rgb(247, 247, 247)",
   secondary: "rgb(194, 180, 66)",
@@ -52,6 +53,12 @@ const GlobalStyle = createGlobalStyle`
                 overflow-x: hidden;
                 min-height: 100vh;
                 padding-bottom: 10px;
+        }
+        .inputSelected{
+          ${onUpPlaceholder()}
+            background-color: white;
+            padding: 5px;
+            top:-18px;
         }
 `;
 

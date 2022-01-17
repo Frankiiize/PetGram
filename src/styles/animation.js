@@ -59,3 +59,15 @@ export const onHiddeMenu = () => {
   return css`animation: 100ms ${HiddeMenu} linear;`
 }
 
+const UpPlaceholder = keyframes`
+  from {
+   top: 0
+  }
+  to {
+    top:-18px;
+  }
+`
+export const onUpPlaceholder = () => {
+  return css`animation: 100ms ${UpPlaceholder} ease;`
+}
+

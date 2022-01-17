@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { Form, Label, Input, CheckBoxContainer, Check, SendButtom, Title, FormContainer, StyledCheckbox, LinkRecoveryPassword, RegisterLinkWrapper, P , SingUpBtn} from "./styles";
+import React, {useCallback, useEffect, useImperativeHandle, useRef, useState} from "react";
+import { Form, Label, Span, Input, CheckBoxContainer, Check, SendButtom, Title, FormContainer, StyledCheckbox, LinkRecoveryPassword, RegisterLinkWrapper, P , SingUpBtn} from "./styles";
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
 
 const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, showRegister}) => {
@@ -11,6 +11,7 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
     passwordConfirn:"",
     check:false,
   })
+
   const [ showPassword, setShowPassword ] = useState(false);
   const handleShowPassword = () =>{
     setShowPassword(!showPassword);
@@ -26,6 +27,25 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
       [event.target.name] : event.target.value
     })
   }
+  const inputRef = useRef(null);
+  const lasteNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const cPasswordRef = useRef(null);
+  const [ isSelectInput, setSelectInput ] = useState({
+    name:false,
+    lastName:false,
+    email: false,
+    password: false,
+    cPassword: false,
+  });
+
+  const handleSelectInput = (input,ref) => {
+    setSelectInput({...isSelectInput, [input]: true})
+    const element = ref.current;
+    element.focus();
+  }
+
   return (
     <FormContainer>
     {isDisabled && <p>loading...</p>}
@@ -34,8 +54,13 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
         { 
           showRegister &&
           <>
-            <Label htmlFor="name">
+            <Label onClick={() => handleSelectInput('name',inputRef)} htmlFor="name">
+            {
+              isSelectInput.name && <Span className={isSelectInput.name && 'inputSelected'}>name</Span>
+            }
+              
               <Input 
+                ref={inputRef}
                 placeholder="name"
                 value={formValues.name}
                 name="name"
@@ -43,10 +68,15 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
                 autoComplete="name"
               />
             </Label>
-            <Label htmlFor="lastName">
+            <Label htmlFor="lastName"  onClick={() => handleSelectInput('lastName', lasteNameRef)} >
+              {
+                isSelectInput.lastName && <Span className={isSelectInput.lastName && 'inputSelected'}>lastName</Span>
+              }
+              
               <Input 
+                ref={lasteNameRef}
                 placeholder="lastName"
-                value={formValues.name}
+                value={formValues.lastName}
                 name="lastName"
                 onChange={setOnChangeValues}
                 autoComplete="family-name"
@@ -54,8 +84,13 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
             </Label>
           </>
         }
-        <Label htmlFor="email">
+        <Label htmlFor="email" onClick={() => handleSelectInput('email', emailRef)}>
+        {
+          isSelectInput.email && <Span className={isSelectInput.email && 'inputSelected'}>email</Span>
+        }
+        
           <Input 
+            ref={emailRef}
             disabled={isDisabled}
             placeholder="Email" 
             name="email"
@@ -64,8 +99,13 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
             autoComplete="email"
           />
         </Label>
-        <Label htmlFor="password">
-          <Input 
+        <Label htmlFor="password" onClick={() => handleSelectInput('password', passwordRef)} >
+        {
+          isSelectInput.password && <Span className={isSelectInput.password && 'inputSelected'}>password</Span>
+        }
+        
+          <Input
+            ref={passwordRef}
             disabled={isDisabled}
             placeholder="password" 
             name="password"
@@ -83,8 +123,13 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
         </Label>
             {
               showRegister &&
-              <Label htmlFor="passwordConfirn">
-                <Input 
+              <Label htmlFor="passwordConfirn" onClick={() => handleSelectInput('cPassword', cPasswordRef)}>
+                {
+                  isSelectInput.cPassword && <Span className={isSelectInput.cPassword && 'inputSelected'}>confirm password</Span>
+                }
+                
+                <Input
+                  ref={cPasswordRef}
                   placeholder="password" 
                   name="passwordConfirn"
                   value={formValues.passwordConfirn} 

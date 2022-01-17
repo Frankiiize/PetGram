@@ -9,7 +9,7 @@ const Login = () => {
   const { isAuth, activeAuth, client } = useContext(AuthContext);
   const { sendRegisterData, error, loading } = useRegister(activeAuth);
   const { sendLoginData, loadingLogin, errorLogin  } = useLogin(activeAuth,client)
-  const [ showRegister , setShowRegister ]  = useState(false);
+  const [ showRegister , setShowRegister ]  = useState(true);
   const handleTypeOfForm = () => {
     setShowRegister(!showRegister)
   }
