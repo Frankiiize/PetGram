@@ -4,6 +4,7 @@ import { ListOfFavs } from "../components/ListOfFavs";
 import { FavButton } from "../components/FavButton";
 import { FavsContainer } from "../components/ListOfFavs/styles";
 import { TitleContainer, Title } from '../components/ListOfFavs/styles'
+import { MdFavoriteBorder } from "react-icons/md";
 const FavsPage = () => {
   const { loading, error, data } = useGetFavs()
   const { favs } = data || { favs : []}
@@ -15,7 +16,7 @@ const FavsPage = () => {
       <FavsContainer>
         <TitleContainer>
           <Title>Your Favorites</Title>
-          <FavButton size={20} text={false}/>
+          <MdFavoriteBorder size={20} />
         </TitleContainer>
         <ListOfFavs favs={favs} />
       </FavsContainer>

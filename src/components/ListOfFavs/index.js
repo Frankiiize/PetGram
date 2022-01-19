@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {FavsContainer, FavoritesWrapper, Imagen, Title } from './styles.js'
-const ListOfFavs = (props) => {
-  console.log(props)
+import { FavoritesWrapper, Imagen } from './styles.js'
+import PropTypes from 'prop-types';
+
+const ListOfFavs = ({favs}) => {
   return (
     <>
         <FavoritesWrapper>
           {
-            props.favs.map((fav) => (
+            favs.map((fav) => (
               <Link key={fav.id} to={`/details/${fav.id} `} >
                 <Imagen src={fav.src} /> 
               </Link>
@@ -15,6 +16,14 @@ const ListOfFavs = (props) => {
           }
         </FavoritesWrapper>
     </>
+  )
+}
+ListOfFavs.propTypes = {
+  favs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      src: PropTypes.string
+    })
   )
 }
 

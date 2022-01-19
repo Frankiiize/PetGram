@@ -4,6 +4,7 @@ import { App } from './App.jsx'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
 import { onError } from "@apollo/client/link/error";
+
 const httpLink = createHttpLink({
   uri: 'https://petgram-api-frankiiize.vercel.app/graphql',
 })

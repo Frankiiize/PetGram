@@ -15,6 +15,7 @@ const useLogin = (activeAuth,client) => {
         email:"",
         password:""
       },
+      fetchPolicy: "network-only"
     }
   });
   const sendLoginData = (data) =>{
