@@ -17,7 +17,7 @@ const useRegister = (activeAuth) => {
         password:""
       }
     },
-    fetchPolicy: "network-only"
+    
   });
   const sendRegisterData = (data) =>{
     const {email} = data
