@@ -3,6 +3,13 @@ import styled, { css } from "styled-components";
 import { colorPallete } from "../../styles/GlobalStyle";
 import { fadeIn } from "../../styles/animation";
 import { onShowMenu, onHiddeMenu } from "../../styles/animation";
+export const NavContainer = styled.div`
+  max-width:600px;
+  margin:0 auto;
+  position:relative;
+  display:flex;
+  justify-content: flex-end;
+`
 export const  Nav = styled.nav`
   ${onShowMenu()}
   display:flex;
@@ -11,9 +18,10 @@ export const  Nav = styled.nav`
   background-color: ${colorPallete.primary};
   position: fixed;
   bottom: 0;
-  right: 0;
   justify-content:space-around;
   align-items:flex-start;
+  max-width:600px;
+  margin:0 auto
   ${ props => !props.showNav &&
      css`
       ${onHiddeMenu};
@@ -58,7 +66,6 @@ export const HamburderContainer = styled.div`
   position: fixed;
   display:flex;
   align-items:center;
-  right: 5px;
   bottom:0; 
   color: ${colorPallete.tertiary};
   background-color:${colorPallete.primary};

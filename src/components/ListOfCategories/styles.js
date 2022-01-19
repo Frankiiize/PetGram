@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components";
 import { fadeIn , fadeMenu } from "../../styles/animation";
 const List = styled.ul `
- display: flex;
- overFlow: scroll;
- width: 100%;
- justify-content: space-around;
- align-items: center;
-
+display: flex;
+overFlow: scroll;
+width: 100%;
+align-items: center;
+max-width:600px;
+margin:0 auto;
+justify-content: flex-start;
   &::-webkit-scrollbar {
       display: none;
     }

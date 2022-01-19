@@ -6,9 +6,10 @@ export const Svg = styled.svg`
   margin-top: -30px;
 `
 export const LogoContainer = styled.div`
-  display:inline-flex;
+  display:block;
   width:100%;
   height:100%;
   align-items:center;
-  margin: 0 0 10px 0;
+  margin: 0 auto 10px auto;
+  max-width:600px;
 `

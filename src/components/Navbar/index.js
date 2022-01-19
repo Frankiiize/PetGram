@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Boton, Nav, HamburderContainer } from "./styles";
+import { NavContainer, Boton, Nav, HamburderContainer } from "./styles";
 import { MdHome, MdPersonOutline, MdOutlineFavorite, MdMenuOpen } from "react-icons/md";
 const NavBarComponent = () => {
   const [ showNav, setShowNav ] = useState(true);
@@ -15,10 +15,10 @@ const NavBarComponent = () => {
   },[showNav]);
 
   return (
-    <>
+    <NavContainer>
       {
         showNav
-        ? 
+        ?
         <Nav showNav={showNav}>
           <Boton to={"/"} title="home" style={({isActive})  => (
             isActive ? 'activado' : undefined 
@@ -42,7 +42,7 @@ const NavBarComponent = () => {
          </HamburderContainer>
       }
   
-    </>
+    </NavContainer>
 
   )
 }

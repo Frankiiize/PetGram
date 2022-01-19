@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useImperativeHandle, useRef, useState} from "react";
 import { Form, Label, Span, Input, CheckBoxContainer, Check, SendButtom, Title, FormContainer, StyledCheckbox, LinkRecoveryPassword, RegisterLinkWrapper, P , SingUpBtn} from "./styles";
 import { RiEyeCloseLine, RiEyeLine } from 'react-icons/ri'
+import { PrimaryBtn } from "../PrimaryBtn";
 
 const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, showRegister}) => {
   const [ formValues, setFormValues ] = useState({
@@ -174,7 +175,7 @@ const LoginForm = ({onSubmitData, error, isDisabled, title, handleTypeOfForm, sh
           </StyledCheckbox>
           <span>Remember me</span>
         </CheckBoxContainer>
-        <SendButtom type="submit" value={title} />
+        <PrimaryBtn title={title} type={"submit"} />
         { !showRegister && <LinkRecoveryPassword href="/recovery-password">Forgot Password?</LinkRecoveryPassword>}
         
       </Form>

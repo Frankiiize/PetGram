@@ -10,6 +10,26 @@ export const FavoritesWrapper = styled.div`
   overflow: scroll;
   align-self:stretch;
   row-gap: 5px;
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    }
+  &::-webkit-scrollbar:vertical {
+    width:10px;
+  }
+  &::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+  } 
+  &::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+  }
+  :-webkit-scrollbar-track {
+    border-radius: 10px;  
+  }
 `
 
 export const Imagen = styled.img`
@@ -30,11 +50,14 @@ export const Title = styled.h2`
 export const  FavsContainer = styled.div`
   width:95%;
   margin: 0 auto;
+  max-width:600px;
+
 
 `
 export const TitleContainer = styled.div`
   display: inline-flex;
   align-items: center;
+  margin-bottom:20px;
 
 `
 /* 
