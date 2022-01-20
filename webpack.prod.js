@@ -4,7 +4,7 @@ const WebpackPwaManifestPlugin = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname,'dist'),
@@ -12,7 +12,6 @@ module.exports = {
     hashFunction: "xxhash64",
     publicPath: '/'
   },
-  devtool: 'eval-source-map',
   module: {
     rules: [
 			{
@@ -49,6 +48,7 @@ module.exports = {
     compress: true,
     port: 3005,
     historyApiFallback: true,
+    https:true,
   },
   plugins: [
     new HtmlWebpackPlugin({

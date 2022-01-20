@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack-dev-server",
-    "serve:dev": "webpack --mode 'development' && npx serve dist -s"
+    "serve:dev": "webpack --mode 'development' && npx serve dist -s",
+    "build:production": "webpack --config webpack.prod.js && npx serve dist -s"
   },
   "repository": {
     "type": "git"
