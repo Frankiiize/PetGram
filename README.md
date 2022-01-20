@@ -89,8 +89,8 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 * [React.js](https://reactjs.org/)
+* [Styled-Components](https://styled-components.com/)
 * [HTML] 
-* [Styled-Components] (https://styled-components.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
