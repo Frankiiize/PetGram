@@ -142,7 +142,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@Frankiiize](https://twitter.com/frankiiize) - frankiiize@gmail.com.com
+Your Name - [@Frankiiize](https://twitter.com/frankiiize) - frankiiize@gmail.com
 
 Project Link: [https://pet-gram-plum.vercel.app/](https://pet-gram-plum.vercel.app/)
 
