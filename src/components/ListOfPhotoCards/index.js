@@ -12,10 +12,12 @@ const ListOfPhotoCards = ({loading, error, data}) => {
   return (
     <ListUl>
       {data.photos.map((element) => (
-        <PhotoCard 
-          {...element}
-          key={element.id} 
-          />
+        <li  key={element.id} >
+          <PhotoCard 
+            {...element}
+           
+            />
+        </li>
       ))}
     </ListUl>
   )

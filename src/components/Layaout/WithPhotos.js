@@ -22,10 +22,10 @@ const WithPhotos = ({children, categoryId}) => {
    
   });
   return (
-    <div className="list">
+    <main className="list">
       <ListOfPhotoCards data={data} error={error} loading={loading}/>
       {children}
-    </div>
+    </main>
   )
 }
 

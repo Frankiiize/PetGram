@@ -16,7 +16,9 @@ const HomePage = () => {
         robots={true}
         url={true}
       />
-      <ListOfCategories  />
+      <header>
+        <ListOfCategories  />
+      </header>
       <WithPhotos categoryId={id}/>
     </>
   )

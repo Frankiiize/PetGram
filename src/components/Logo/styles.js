@@ -5,7 +5,7 @@ export const Svg = styled.svg`
   margin-left: -10px;
   margin-top: -30px;
 `
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.h1`
   display:block;
   width:100%;
   height:100%;

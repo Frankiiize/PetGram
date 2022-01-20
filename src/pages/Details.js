@@ -11,6 +11,7 @@ const DetailsPage = () => {
         title={"Details |PetGram"} 
         description={"Detalles fotos mascotas"}
         keywords={"detalles, foto, selfie, mascotas"}
+        canonical={false}
       />
       <PhotoCardWithQuery detailsId={detailsId} />
     </>

@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const WebpackPwaManifestPlugin = require('webpack-pwa-manifest')
+/* const WebpackPwaManifestPlugin = require('webpack-pwa-manifest')
 const WorkboxPlugin = require('workbox-webpack-plugin');
-
+ */
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
@@ -55,7 +55,7 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     }),
-    new WebpackPwaManifestPlugin({
+    /* new WebpackPwaManifestPlugin({
       filename: 'manifest.webmanifest',
       name: 'Petgram',
       description: 'Tu app preferida para encontrar esas mascotas que tanto te encantan',
@@ -76,8 +76,8 @@ module.exports = {
           purpose: 'maskable'
         }
       ]
-    }),
-    new WorkboxPlugin.GenerateSW({
+    }), */
+    /* new WorkboxPlugin.GenerateSW({
       "navigateFallback": "/index.html",
       "clientsClaim": true,
       "maximumFileSizeToCacheInBytes": 50000000,
@@ -106,6 +106,6 @@ module.exports = {
           }
         }
       ]
-    })
+    }) */
   ],
 }
