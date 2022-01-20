@@ -111,15 +111,23 @@ This is an example of how to list things you need to use the software and how to
 ### Installation
 
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone git@github.com:Frankiiize/PetGram.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
-   npm install
+   npm i @apollo/client graphql
+   npm i intersection-observer
+   npm i styled-components
+   npm i webpack webpack-cli webpack-dev-server
+   npm i @babel/core @babel/preset-env @babel/preset-react
+   npm i babel-loader html-loader html-webpack-plugin
+   npm i react-helmet
+   npm i react-router-dom@6
+   npm install workbox-webpack-plugin 
    ```
+3. Must upload the API file to vercel 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
