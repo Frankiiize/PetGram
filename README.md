@@ -142,9 +142,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/frankiiize) - frankiiize@gmail.com.com
+Your Name - [@Frankiiize](https://twitter.com/frankiiize) - frankiiize@gmail.com.com
 
-Project Link: [https://github.com/Frankiiize/PetGram](https://github.com/Frankiiize/PetGram)
+Project Link: [https://pet-gram-plum.vercel.app/](https://pet-gram-plum.vercel.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -152,7 +152,7 @@ Project Link: [https://github.com/Frankiiize/PetGram](https://github.com/Frankii
 ## Acknowledgments
 
 * [React.js](https://reactjs.org/)
-* [Styled-Components] (https://styled-components.com/)
+* [Styled-Components](https://styled-components.com/)
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
