@@ -77,7 +77,7 @@
 
 This is a small example of a social network to share photos of pets, you can register
 log in, like shared photos and add them to your favourites. This project
-It is part of an advanced course of platzi avanced react.
+It is part of a course of platzi avanced react.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
